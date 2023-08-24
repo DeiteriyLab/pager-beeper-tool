@@ -1,0 +1,11 @@
+App(
+    appid="subghz_test_app",
+    name="Pager Beeper Tool",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="subghz_test_app",
+    requires=["gui", "subghz"],
+    stack_size=2 * 1024,
+    fap_icon="subghz_demo.png",
+    fap_category="Tools",
+    fap_icon_assets="images"
+)
