@@ -108,7 +108,7 @@ void subghz_cli_command_tx(void* ctx) {
     snprintf(pager_key, 20, "%02x", reverse(app->pager_number - 256 * ((int)app->pager_number/256)));
     char result_key [20];
     
-    snprintf(group_number, 20, "%d", reverse((app->pager_number/256)<<2));
+    snprintf(group_number, 20, "%01x", reverse(((int)app->pager_number/256)<<2));
 
     concatenate_result_key(key_prefix, base_key, group_number, pager_key, result_key);
     FURI_LOG_E ("result_key", result_key);
@@ -224,14 +224,15 @@ static void subghz_test_app_draw_callback(Canvas* canvas, void* ctx) {
     canvas_draw_str(canvas, 80, 40, pager_number);
 
     snprintf(result_key, 20, "%02x", app->key);
+
     if (app->sending == 1) {
         canvas_draw_str(canvas, 0, 55, "Sending key:");
         canvas_draw_str(canvas, 80, 55, result_key);
     }
     else {
         canvas_set_font(canvas, FontSecondary);
-        canvas_draw_str(canvas, 0, 52, "Press OK to beep, < > to move");
-        canvas_draw_str(canvas, 0, 60, "^ v to change value ↑ ↓");
+        canvas_draw_str(canvas, 0, 52, "Press OK to beep, long press < > to move");
+        canvas_draw_str(canvas, 0, 60, "^ v to change value");
     }
 
     furi_mutex_release(app->mutex);
