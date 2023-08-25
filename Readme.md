@@ -8,13 +8,13 @@ Plugin for Flipper Zero to trigger Retekess T112 restaurant pager systems.
 
 ### Now
 
-Retekess T112
+* Retekess T112
 
 ### TODO
 
-Retekess TD157
-Retekess TD158
-Kromix W2270
+* Retekess TD157
+* Retekess TD158
+* Kromix W2270
 
 ## How to use
 
